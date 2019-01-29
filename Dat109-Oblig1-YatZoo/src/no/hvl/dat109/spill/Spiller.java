@@ -1,5 +1,9 @@
 package no.hvl.dat109.spill;
-
+/**
+ * Spiller objektet
+ * 
+ * @author Gruppe
+ */
 public class Spiller {
 	
 	private String navn;
@@ -7,6 +11,11 @@ public class Spiller {
 	int antallKast;
 	boolean ferdigMedRunde;
 	
+	/**
+	 * Konstruktør
+	 * 
+	 * @param navn på spiller
+	 */
 	public Spiller(String navn) {
 		this.navn = navn;
 		resultater = new Integer[12];
@@ -14,7 +23,14 @@ public class Spiller {
 		ferdigMedRunde = false;
 	}
 
-	
+	/**
+	 * Metode som brukes per terning kast
+	 * 
+	 * @param koppen som skal bruke terningene
+	 * @param skalBeholde Hvilke terninger som skal beholdes
+	 * @param runde hvilken runde som spilles
+	 * @return om brukeren er fornøyd.
+	 */
 	public boolean kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
 		
 		boolean fornoyd = fornoyd(skalBeholde);
@@ -49,12 +65,21 @@ public class Spiller {
 		return true;
 	}
 
+	/**
+	 * Kaster terningene
+	 * 
+	 * @param koppen som skal brukes
+	 */
 	public void kastTerninger(TerningKopp kopp) {
 		kopp.kast(new boolean[] {false, false, false, false, false});
 	}
 	
 
-
+/**
+ * Metode for å beregne sum av kast.
+ * 
+ * @return
+ */
 	public int beregnSum() {
 		int sum = 0;
 		for(Integer i: resultater) {

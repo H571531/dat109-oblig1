@@ -6,9 +6,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>!!! YATZOO !!!</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="Kast">
 	<h1>RUNDE: ${spill.runde + 1}</h1>
 	<h2>Spiller: ${spill.aktivSpiller.navn}</h2>
 
@@ -49,5 +51,40 @@
 		</table>
 		<input type="submit" value="Videre">
 	</form>
+	</div>
+	
+	<div class="Oversikt">
+		<table>
+		<tr>
+			<td></td>
+			<c:forEach var="spiller" items="${spill.spillere}">
+				<td><c:out value="${spiller.navn}"></c:out></td>
+			</c:forEach>
+		
+		</tr>
+		
+		<c:forEach var="rundeBilde" items="${spill.ark.bildeURLs}" varStatus="i">
+			<tr>
+				<td><img src="${rundeBilde}" width="50">
+				</td>
+				<c:forEach var="spiller" items="${spill.spillere}">
+					<td>${spiller.resultater[i.index]}</td>
+				</c:forEach>
+			</tr>
+		</c:forEach>
+		
+		
+		<br />
+		<tr>
+			<td><strong>SUM: </strong></td>
+			<c:forEach var="spiller" items="${spill.spillere}">
+				<td>${spiller.sum}</td>
+			</c:forEach>
+		</tr>
+		
+	</table>
+	
+	</div>
+	
 </body>
 </html>

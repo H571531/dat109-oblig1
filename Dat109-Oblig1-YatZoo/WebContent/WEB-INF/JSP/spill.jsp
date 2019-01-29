@@ -8,6 +8,7 @@
 <title>!!! YATZOO !!!</title>
 </head>
 <body>
+<div class="Resultat">
 	<table>
 		<tr>
 			<td></td>
@@ -45,6 +46,6 @@
 		<button type="submit">Spill neste runde</button>
 	</form>
 	
-
+</div>
 </body>
 </html>

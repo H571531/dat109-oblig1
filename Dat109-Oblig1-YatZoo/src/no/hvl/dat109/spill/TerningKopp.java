@@ -12,6 +12,11 @@ public class TerningKopp {
 	
 	Terning[] terninger;
 	
+	/**
+	 * Lager nye terninger
+	 * 
+	 * @param antallTerninger som skal oprettes. 
+	 */
 	public TerningKopp(int antallTerninger) {
 		terninger = new Terning[antallTerninger];
 		for(int i = 0; i < antallTerninger; i++) {
@@ -19,12 +24,18 @@ public class TerningKopp {
 		}
 		
 	}
-	
+	/**
+	 * hjelpemetode for Â gj¯re alle "skalBeholde" til false. 
+	 */
 	public void reset() {
 		kast(new boolean[] {false, false, false, false, false});
 	}
 	
-	
+	/**
+	 * Kaster terninger basert pÂ hvor mange 
+	 * 
+	 * @param Hvor mange av terningene som skal beholdes 
+	 */
 	public void kast(boolean[] skalBeholde) {
 		
 		
@@ -34,7 +45,12 @@ public class TerningKopp {
 		}
 		
 	}
-	
+	/**
+	 * Sender en request til Rundeutils for Â fÂ tilbake poengsum
+	 * 
+	 * @param hvilken runde som spilles
+	 * @return poengsummen
+	 */
 	public int beregnPoengForRunde(int runde) {
 		return RundeUtils.beregnRunde(runde, this);
 	}
@@ -58,7 +74,12 @@ public class TerningKopp {
 		}
 		return antall;
 	}
-	
+	/**
+	 * Regel for 1.-6. runde
+	 * 
+	 * @param antall
+	 * @return poengsummen av like
+	 */
 	public boolean gittAntallLike(int antall) {
 		boolean ok = false;
 		
@@ -74,7 +95,10 @@ public class TerningKopp {
 		return ok;
 		
 	}
-	
+	/**
+	 * Poeng regning for toPar runden
+	 * @return poengsummen
+	 */
 	public boolean toPar() {
 		boolean ok = false;
 		int antallDyrMedTo = 0;
@@ -98,7 +122,12 @@ public class TerningKopp {
 		return ok;
 		
 	}
-	
+	/**
+	 * Hjelpemetode for Â finne hvor mange av en spesifikk verdi
+	 * 
+	 * 
+	 * @return antall av spesifikke dyr
+	 */
 	public Integer[] tabellMedAntall() {
 		Integer[] dyreTab = new Integer[6];
 		
@@ -108,7 +137,11 @@ public class TerningKopp {
 		}
 		return dyreTab;
 	}
-
+/**
+ * Hus regel
+ * 
+ * @return poengsum
+ */
 	public boolean hus() {
 		Integer[] tab = tabellMedAntall();
 		List<Integer> liste = Arrays.asList(tab);
@@ -119,7 +152,11 @@ public class TerningKopp {
 			return false;
 		}
 	}
-
+/**
+ * Regel for alle ulike
+ * 
+ * @return om alle er ulike
+ */
 	public boolean alleUlike() {
 		
 		//Set kan kun inneholde en av et gitt element, returnerer false hvis det pr√∏ves √• legge til noe som allerede finnes
@@ -133,7 +170,11 @@ public class TerningKopp {
 		return true;
 		
 	}
-
+/**
+ * Metode for Â sejkke om alle kastene var like
+ * 
+ * @return
+ */
 	public boolean alleLike() {
 		boolean ok = true;
 		
@@ -145,7 +186,9 @@ public class TerningKopp {
 		
 		return ok;
 	}
-
+/**
+ * Kaster alle terningene
+ */
 	public void kast() {
 		kast(new boolean[] {false, false, false, false, false});
 		

@@ -8,6 +8,7 @@
 <title>!!! YATZOO !!!</title>
 </head>
 <body>
+<div class="Resultat">
 	<table>
 		<tr>
 			<td></td>
@@ -44,7 +45,6 @@
 	<form action="YatzooSpillServlet" method="post">
 		<button type="submit">Spill på nytt</button>
 	</form>
-	
-
+</div>
 </body>
 </html>

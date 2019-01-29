@@ -3,7 +3,12 @@ package no.hvl.dat109.spill;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
-
+/**
+ * YatzooSpill 
+ * 
+ * 
+ * @author Gruppe 
+ */
 public class YatzooSpill {
 	
 	private Spiller[] spillere;
@@ -16,6 +21,13 @@ public class YatzooSpill {
 	TerningKopp kopp;
 	ResultatArk ark;
 	
+	/**
+	 * Konstruktør
+	 * 
+	 * @param spillere som skal være med i spillet
+	 */
+	
+	
 	public YatzooSpill(List<Spiller> spillere) {
 		this.spillere= spillere.toArray(new Spiller[spillere.size()]);
 		
@@ -27,17 +39,23 @@ public class YatzooSpill {
 		
 	}
 	
-	
+	/**
+	 * Starter spillet med første spiller
+	 */
 	public void startSpill() {
 		runde = 0;
 		aktivSpiller = spillere[0];
 		kopp.reset();
 	}
 	
+	/**
+	 * Bytter til neste spiller. 
+	 * @return neste spiller
+	 */
 	public Spiller nesteSpiller() {
 		
 		//Hvis siste spiller er ferdig, begynn neste runde
-		nesteRunde();
+		bestemOmNyRunde();
 		
 		aktivSpillerInt = (aktivSpillerInt + 1) % spillere.length;
 		
@@ -49,19 +67,31 @@ public class YatzooSpill {
 		return spillere[aktivSpillerInt];
 	}
 
-
-	private void nesteRunde() {
+	/**
+	 * Sjekker om det er flere spillere igjen om ikke starter neste
+	 * 
+	 */
+	private void bestemOmNyRunde() {
 		if(aktivSpillerInt == spillere.length-1) {
 			runde++;
 		}
 	}
-	
+	/**
+	 * Metode for å si ifra at aktivSpiller er ferdig med sin runde
+	 * 
+	 * @return om spiller er ferdig med runden. 
+	 */
 	public boolean aktivSpillerFerdigMedRunde() {
 		return aktivSpiller.ferdigMedRunde();
 	}
 
 
-	
+	/**
+	 * Starter nytt kast
+	 * 
+	 * @param valgteTerninger som skal beholdes/kastes
+	 * @return returnerer hvorvidt bruker er fornøyd
+	 */
 	public boolean utforNesteKast(boolean[] valgteTerninger) {
 		return aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
 		
@@ -69,7 +99,11 @@ public class YatzooSpill {
 	}
 	
 
-	
+	/**
+	 * Finner hvem som vinner
+	 * 
+	 * @return vinneren
+	 */
 	public Spiller finnVinner() {
 		Spiller vinner = spillere[0];
 		int hoyest = vinner.beregnSum();
@@ -84,6 +118,11 @@ public class YatzooSpill {
 		return vinner;
 	}
 	
+	/**
+	 * Sjekker om alle rundene er ferdig
+	 * 
+	 * @return om alle rundene er ferdig
+	 */
 	public boolean heltFerdig() {
 		return runde == 12;
 	}

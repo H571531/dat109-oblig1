@@ -1,5 +1,11 @@
 package no.hvl.dat109.spill;
 
+/**
+ * Klasse for Spill objektet
+ * 
+ * 
+ * @author Gruppe 
+ */
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,7 +46,11 @@ public class ResultatArk {
 	private Integer[][] resultater;
 	private HashMap<Spiller, Integer[]> resultaterMap;
 	
-	
+	/**
+	 * Konstruktør for resultatarket
+	 * 
+	 * @param spillere som skal være med i spillet.
+	 */
 	public ResultatArk(List<Spiller> spillere) {
 		resultater = new Integer[spillere.size()][12];
 		resultaterMap = new HashMap<Spiller, Integer[]>();
@@ -50,12 +60,12 @@ public class ResultatArk {
 		}
 	}
 
-
+	
 	public Integer[][] getResultater() {
 		return resultater;
 	}
 
-
+	
 	public void setResultater(Integer[][] resultater) {
 		this.resultater = resultater;
 	}
