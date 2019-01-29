@@ -32,24 +32,25 @@ public class YatzooSpillServlet extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/JSP/spill.jsp").forward(request, response);
 		} else {
 			//ferdig med siste runde
-			request.getRequestDispatcher("WEB-INF/JSP/spillFerdig.jsp");
+			spill.finnVinner();
+			request.getRequestDispatcher("WEB-INF/JSP/spillFerdig.jsp").forward(request, response);
 		}
 		
 		
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		spill = (YatzooSpill) request.getSession().getAttribute("spill");
-	
-		
-		response.sendRedirect("YatzooSpillServlet");
-		
-		
-	}
+//	/**
+//	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+//	 */
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		
+//		spill = (YatzooSpill) request.getSession().getAttribute("spill");
+//	
+//		
+//		response.sendRedirect("YatzooSpillServlet");
+//		
+//		
+//	}
 
 }

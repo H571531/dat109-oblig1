@@ -40,7 +40,7 @@
 	</table>
 	
 	<br><br><br>
-	Vinner: <strong>${spill.vinner.navn}</strong>
+	<!--  Vinner: <strong>${spill.vinner.navn}</strong>  -->
 	
 	<form action="YatzooSpillRundeServlet" method="get">
 		<button type="submit">Spill neste runde</button>

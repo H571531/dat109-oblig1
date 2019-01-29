@@ -11,6 +11,7 @@ import no.hvl.dat109.utils.RundeUtils;
 public class TerningKopp {
 	
 	Terning[] terninger;
+	public static final boolean[] BEHOLD_INGEN_TERNINGER = {false, false, false, false, false};
 	
 	/**
 	 * Lager nye terninger
@@ -25,14 +26,14 @@ public class TerningKopp {
 		
 	}
 	/**
-	 * hjelpemetode for å gjøre alle "skalBeholde" til false. 
+	 * hjelpemetode for ï¿½ gjï¿½re alle "skalBeholde" til false. 
 	 */
 	public void reset() {
-		kast(new boolean[] {false, false, false, false, false});
+		kast(BEHOLD_INGEN_TERNINGER);
 	}
 	
 	/**
-	 * Kaster terninger basert på hvor mange 
+	 * Kaster terninger basert pï¿½ hvor mange 
 	 * 
 	 * @param Hvor mange av terningene som skal beholdes 
 	 */
@@ -46,7 +47,7 @@ public class TerningKopp {
 		
 	}
 	/**
-	 * Sender en request til Rundeutils for å få tilbake poengsum
+	 * Sender en request til Rundeutils for ï¿½ fï¿½ tilbake poengsum
 	 * 
 	 * @param hvilken runde som spilles
 	 * @return poengsummen
@@ -123,7 +124,7 @@ public class TerningKopp {
 		
 	}
 	/**
-	 * Hjelpemetode for å finne hvor mange av en spesifikk verdi
+	 * Hjelpemetode for ï¿½ finne hvor mange av en spesifikk verdi
 	 * 
 	 * 
 	 * @return antall av spesifikke dyr
@@ -171,7 +172,7 @@ public class TerningKopp {
 		
 	}
 /**
- * Metode for å sejkke om alle kastene var like
+ * Metode for ï¿½ sejkke om alle kastene var like
  * 
  * @return
  */

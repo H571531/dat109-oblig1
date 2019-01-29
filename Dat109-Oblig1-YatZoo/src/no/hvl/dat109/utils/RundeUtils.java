@@ -4,6 +4,8 @@ import no.hvl.dat109.spill.TerningKopp;
 
 public class RundeUtils {
 	
+	
+	
 	public static int beregnRunde(int runde, TerningKopp kopp) {
 		int resultat = 0;
 		
@@ -27,10 +29,10 @@ public class RundeUtils {
 			resultat = kopp.antallAvGittDyr(Dyr.HVAL);
 			break;
 		case 6:
-			resultat = kopp.gittAntallLike(3) ? 1 : 0;
+			resultat = kopp.gittAntallLike(3) ? 3 : 0;
 			break;
 		case 7:
-			resultat = kopp.gittAntallLike(4) ? 1 : 0;
+			resultat = kopp.gittAntallLike(4) ? 4 : 0;
 			break;
 		case 8:
 			resultat = kopp.toPar() ? 4 : 0;

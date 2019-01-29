@@ -22,9 +22,9 @@ public class YatzooSpill {
 	ResultatArk ark;
 	
 	/**
-	 * Konstruktør
+	 * Konstruktï¿½r
 	 * 
-	 * @param spillere som skal være med i spillet
+	 * @param spillere som skal vï¿½re med i spillet
 	 */
 	
 	
@@ -40,13 +40,14 @@ public class YatzooSpill {
 	}
 	
 	/**
-	 * Starter spillet med første spiller
+	 * Starter spillet med fï¿½rste spiller
 	 *
 	 */
 	public void startSpill() {
 		runde = 0;
 		aktivSpiller = spillere[0];
-		kopp.reset();
+		//kopp.reset();
+		utforNesteKast(TerningKopp.BEHOLD_INGEN_TERNINGER);
 	}
 	
 	/**
@@ -78,7 +79,7 @@ public class YatzooSpill {
 		}
 	}
 	/**
-	 * Metode for å si ifra at aktivSpiller er ferdig med sin runde
+	 * Metode for ï¿½ si ifra at aktivSpiller er ferdig med sin runde
 	 * 
 	 * @return om spiller er ferdig med runden. 
 	 */
@@ -91,10 +92,20 @@ public class YatzooSpill {
 	 * Starter nytt kast
 	 * 
 	 * @param valgteTerninger som skal beholdes/kastes
-	 * @return returnerer hvorvidt bruker er fornøyd
+	 * @return Hvis det velges ny spiller returneres at ingen terninger er valgt - hvis samme spiller skal gjÃ¸re neste kast returneres like valg som ble gitt
 	 */
-	public boolean utforNesteKast(boolean[] valgteTerninger) {
-		return aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
+	public boolean[] utforNesteKast(boolean[] valgteTerninger) {
+		
+		aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
+		
+		if(aktivSpillerFerdigMedRunde()) {
+			nesteSpiller();
+			valgteTerninger = TerningKopp.BEHOLD_INGEN_TERNINGER;
+		} 
+		
+		
+		return valgteTerninger;
+		
 		
 		
 	}

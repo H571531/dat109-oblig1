@@ -24,18 +24,18 @@ public class YatzooFerdigServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		spill = (YatzooSpill) request.getSession().getAttribute("spill");
-		request.getRequestDispatcher("WEB-INF/JSP/spillFerdig.jsp").forward(request, response);
+//		spill = (YatzooSpill) request.getSession().getAttribute("spill");
+//		request.getRequestDispatcher("WEB-INF/JSP/spillFerdig.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		spill = (YatzooSpill) request.getSession().getAttribute("spill");
-		spill.finnVinner();
-		
-		response.sendRedirect("YatzooFerdigServlet");
+//		spill = (YatzooSpill) request.getSession().getAttribute("spill");
+//		spill.finnVinner();
+//		
+//		response.sendRedirect("YatzooFerdigServlet");
 	}
 
 }
