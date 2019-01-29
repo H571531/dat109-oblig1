@@ -14,23 +14,6 @@ public class Spiller {
 		ferdigMedRunde = false;
 	}
 
-//	public void spillRunde(TerningKopp kopp, int runde) {
-//		
-//		boolean[] skalBeholde = {false,false,false,false,false};
-//		
-//		boolean fornoyd = false;
-//		int antallKast = 0;
-//		
-//		do {
-//			kopp.kast(skalBeholde);
-//			vurderKopp(kopp,runde, skalBeholde);
-//			antallKast++;
-//			
-//		} while(!fornoyd && antallKast < 3);
-//		
-//		resultater[runde] = kopp.beregnPoengForRunde(runde);
-//		
-//	}
 	
 	public boolean kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
 		
@@ -40,9 +23,6 @@ public class Spiller {
 			kopp.kast(skalBeholde);
 			antallKast++;
 		}
-		
-		
-		
 		
 		if(antallKast > 2 || fornoyd) {
 			kopp.beregnPoengForRunde(runde);
@@ -72,10 +52,7 @@ public class Spiller {
 		kopp.kast(new boolean[] {false, false, false, false, false});
 	}
 	
-	private void vurderKopp(TerningKopp kopp, int runde, boolean[] skalBeholde) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	public int beregnSum() {
 		int sum = 0;
@@ -117,6 +94,7 @@ public class Spiller {
 	public void reset() {
 		ferdigMedRunde = false;
 		antallKast = 0;
+		
 		
 		
 	}

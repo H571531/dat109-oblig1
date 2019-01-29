@@ -21,9 +21,7 @@ public class TerningKopp {
 	}
 	
 	public void reset() {
-		for(Terning terning: terninger) {
-			terning = null;
-		}
+		kast(new boolean[] {false, false, false, false, false});
 	}
 	
 	

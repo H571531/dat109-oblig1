@@ -7,7 +7,6 @@ import java.util.function.Function;
 public class YatzooSpill {
 	
 	private Spiller[] spillere;
-	private List<Spiller> spillereListe;
 	private Spiller aktivSpiller;
 	
 	private int aktivSpillerInt;
@@ -19,7 +18,6 @@ public class YatzooSpill {
 	
 	public YatzooSpill(List<Spiller> spillere) {
 		this.spillere= spillere.toArray(new Spiller[spillere.size()]);
-		this.spillereListe = spillere;
 		
 		aktivSpillerInt = 0;
 		
@@ -30,59 +28,30 @@ public class YatzooSpill {
 	}
 	
 	
-	//Byttet med spillRunde
-//	public void spill() {
-//		runde=0;
-//		while(runde < 12) {
-//			for(Spiller spiller: spillere) {
-//				spiller.spillRunde(kopp, runde);
-//				
-//			}
-//			runde++;
-//		}
-//	}
-	
-	
-	
 	public void startSpill() {
 		runde = 0;
 		aktivSpiller = spillere[0];
 		kopp.reset();
-		//aktivSpiller.kastTerninger(kopp, new boolean[] {false,  false, false, false, false}, 0);
-		
-		
 	}
 	
 	public Spiller nesteSpiller() {
 		
+		//Hvis siste spiller er ferdig, begynn neste runde
 		if(aktivSpillerInt == spillere.length-1) {
 			runde++;
 		}
+		
 		aktivSpillerInt = (aktivSpillerInt + 1) % spillere.length;
-		spillere[aktivSpillerInt].setAntallKast(0);
-		
-		
 		
 		aktivSpiller = spillere[aktivSpillerInt];
 		aktivSpiller.reset();
+		//
 		kopp.kast();
 		
 		return spillere[aktivSpillerInt];
 	}
 
 
-	public void spillRunde() {
-		
-		//aktivSpiller.kast();
-		
-		
-//		if(aktivSpiller.ferdigMedRunde()) {
-//			aktivSpiller = nesteSpiller();
-//			kopp.reset();
-//		}
-		
-		
-	}
 	
 	public boolean utforNesteKast(boolean[] valgteTerninger) {
 		return aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
@@ -90,9 +59,7 @@ public class YatzooSpill {
 		
 	}
 	
-//	public void spillerSpillEnRunde(int nesteSpiller) {
-//		spillere[nesteSpiller].spillRunde(kopp, runde);
-//	}
+
 	
 	public Spiller finnVinner() {
 		Spiller vinner = spillere[0];
