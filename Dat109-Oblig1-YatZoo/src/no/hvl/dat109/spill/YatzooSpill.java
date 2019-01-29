@@ -37,18 +37,27 @@ public class YatzooSpill {
 	public Spiller nesteSpiller() {
 		
 		//Hvis siste spiller er ferdig, begynn neste runde
-		if(aktivSpillerInt == spillere.length-1) {
-			runde++;
-		}
+		nesteRunde();
 		
 		aktivSpillerInt = (aktivSpillerInt + 1) % spillere.length;
 		
 		aktivSpiller = spillere[aktivSpillerInt];
-		aktivSpiller.reset();
+		aktivSpiller.reset(kopp);
 		//
-		kopp.kast();
+		
 		
 		return spillere[aktivSpillerInt];
+	}
+
+
+	private void nesteRunde() {
+		if(aktivSpillerInt == spillere.length-1) {
+			runde++;
+		}
+	}
+	
+	public boolean aktivSpillerFerdigMedRunde() {
+		return aktivSpiller.ferdigMedRunde();
 	}
 
 
