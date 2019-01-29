@@ -41,6 +41,7 @@ public class YatzooSpill {
 	
 	/**
 	 * Starter spillet med første spiller
+	 *
 	 */
 	public void startSpill() {
 		runde = 0;
