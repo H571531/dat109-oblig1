@@ -4,7 +4,8 @@ import java.util.List;
 
 import no.hvl.dat109.Enteties.Terning;
 
-public class Regler {
+public class Regler { //TODO!
+	
 	public static int sjekkPoeng(int runde,List<Terning> terninger) {
 		long resultat;
 		
@@ -28,10 +29,10 @@ public class Regler {
 			resultat = terninger.stream().filter(t->t.getResultat().equals("hval")).count();
 			break;
 		case 6:
-			resultat = kopp.gittAntallLike(3) ? 1 : 0;
+			resultat = ;
 			break;
 		case 7:
-			resultat = kopp.gittAntallLike(4) ? 1 : 0;
+			resultat = ;
 			break;
 		case 8:
 			resultat = ;

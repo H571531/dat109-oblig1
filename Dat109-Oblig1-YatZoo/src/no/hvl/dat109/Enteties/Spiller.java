@@ -16,13 +16,22 @@ public class Spiller {
 	}
 	
 	public boolean spillRunde(int rundenr, Terning terning) {
-		poeng[rundenr]=Regler.sjekkPoeng(rundenr,kast(terning));
+		int antallTerninger=5;
+		int antallKast=1;
+		List<Terning> kast=kast(terning,antallTerninger);
+		boolean Fornoyd=false;
+		while(Fornoyd&&antallKast<=3) {
+			
+		}
+		poeng[rundenr]=Regler.sjekkPoeng(rundenr,kast);
 		
 		return true;
 	}
 
-	private List<Terning> kast(Terning t) {
-		Terning[] resultater=t.kast(5);
+	
+
+	private List<Terning> kast(Terning t,int antall) {
+		Terning[] resultater=t.kast(antall);
 		List<Terning> resList=Arrays.asList(resultater);
 		return resList;
 	}
