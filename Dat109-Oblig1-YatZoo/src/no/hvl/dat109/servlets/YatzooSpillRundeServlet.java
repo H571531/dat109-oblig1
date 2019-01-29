@@ -30,17 +30,12 @@ public class YatzooSpillRundeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		spill = (YatzooSpill) request.getSession().getAttribute("spill");
-		//Spiller aktivSpiller;
 		
 		
-		if(spill.getAktivSpiller().ferdigMedRunde()) {
-			//aktivSpiller = spill.nesteSpiller();
+		if(spill.aktivSpillerFerdigMedRunde()) {
 			spill.nesteSpiller();
 			request.getSession().setAttribute("valgteTerninger", new boolean[5]); //nullstill hvilke terninger som er haket av
-		} else {
-			//aktivSpiller = spill.getAktivSpiller();
-			
-		}
+		} 
 		
 		
 		request.getSession().setAttribute("aktivSpiller", aktivSpiller);

@@ -24,6 +24,7 @@ public class Spiller {
 			antallKast++;
 		}
 		
+		//Hvis bruker har kastet tre ganger eller er fornøyd, gis ikke mulighet til å velge terninger
 		if(antallKast > 2 || fornoyd) {
 			kopp.beregnPoengForRunde(runde);
 			ferdigMedRunde = true;
@@ -91,12 +92,10 @@ public class Spiller {
 		
 	}
 
-	public void reset() {
+	public void reset(TerningKopp kopp) {
 		ferdigMedRunde = false;
 		antallKast = 0;
-		
-		
-		
+		kopp.kast();
 	}
 	
 	
