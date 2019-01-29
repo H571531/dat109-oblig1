@@ -17,9 +17,9 @@
 		
 		</tr>
 		
-		<c:forEach var="rundeNavn" items="${spill.ark.rundeNavn}" varStatus="i">
+		<c:forEach var="rundeBilde" items="${spill.ark.bildeURLs}" varStatus="i">
 			<tr>
-				<td>${rundeNavn}
+				<td><img src="${rundeBilde}">
 				</td>
 				<c:forEach var="spiller" items="${spill.spillere}">
 					<td>${spiller.resultater[i.index]}</td>
@@ -41,7 +41,7 @@
 	<br><br><br>
 	Vinner: <strong>${spill.vinner.navn}</strong>
 	
-	<form action="YatzooSpillRundeServlet" method="post">
+	<form action="YatzooSpillRundeServlet" method="get">
 		<button type="submit">Spill neste runde</button>
 	</form>
 	

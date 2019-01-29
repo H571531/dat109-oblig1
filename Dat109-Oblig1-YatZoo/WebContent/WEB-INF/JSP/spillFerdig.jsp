@@ -17,9 +17,9 @@
 		
 		</tr>
 		
-		<c:forEach var="rundeNavn" items="${spill.ark.rundeNavn}" varStatus="i">
+		<c:forEach var="rundeBilde" items="${spill.ark.bildeURLs}" varStatus="i">
 			<tr>
-				<td>${rundeNavn}
+				<td><img src="${rundeBilde}" width="50">
 				</td>
 				<c:forEach var="spiller" items="${spill.spillere}">
 					<td>${spiller.resultater[i.index]}</td>

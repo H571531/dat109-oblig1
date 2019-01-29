@@ -30,14 +30,15 @@ public class YatzooSpillRundeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		spill = (YatzooSpill) request.getSession().getAttribute("spill");
-		Spiller aktivSpiller;
+		//Spiller aktivSpiller;
 		
 		
 		if(spill.getAktivSpiller().ferdigMedRunde()) {
-			aktivSpiller = spill.nesteSpiller();
-			request.getSession().setAttribute("valgteTerninger", new boolean[5]);
+			//aktivSpiller = spill.nesteSpiller();
+			spill.nesteSpiller();
+			request.getSession().setAttribute("valgteTerninger", new boolean[5]); //nullstill hvilke terninger som er haket av
 		} else {
-			aktivSpiller = spill.getAktivSpiller();
+			//aktivSpiller = spill.getAktivSpiller();
 			
 		}
 		
@@ -59,12 +60,14 @@ public class YatzooSpillRundeServlet extends HttpServlet {
 		String[] valgt = request.getParameterValues("valgteTerninger");
 		boolean[] valgteTerninger = new boolean[5];
 		
+		
+		//Gå gjennom tabell, sett valgte terninger til true
 		if(valgt != null) {
 			for(String tall: valgt) {
 				valgteTerninger[Integer.parseInt(tall)] = true;
 			}
 		}
-		//Gå gjennom tabell, sett valgte terninger til true
+		
 		
 		
 		spill.utforNesteKast(valgteTerninger);

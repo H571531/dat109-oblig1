@@ -20,6 +20,21 @@ public class ResultatArk {
 		"Runde 12: Fem like"
 	};
 	
+	private final String[] bildeURLs = {
+			"img/love.PNG",
+			"img/slange.PNG", 
+			"img/panda.PNG",
+			"img/gris.PNG",
+			"img/elefant.PNG",
+			"img/hval.PNG",
+			"img/treLike.PNG",
+			"img/fireLike.PNG",
+			"img/toPar.PNG",
+			"img/hus.PNG",
+			"img/femUlike.PNG",
+			"img/alleLike.PNG"
+	};
+	
 	private final String[] rundeNavn = {"LØVER","SLANGER","PANDAER","GRISER","ELEFANTER","HVALER","TRE LIKE","FIRE LIKE","TO PAR","HUS","FEM ULIKE","FEM LIKE"};
 	
 	private Integer[][] resultater;
@@ -64,6 +79,13 @@ public class ResultatArk {
 	public String[] getRundeNavn() {
 		return rundeNavn;
 	}
+
+
+	public String[] getBildeURLs() {
+		return bildeURLs;
+	}
+	
+	
 	
 	
 	

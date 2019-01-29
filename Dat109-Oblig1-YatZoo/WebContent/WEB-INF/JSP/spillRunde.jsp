@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>RUNDE: ${spill.runde}</h1>
-	<h2>Spiller: ${aktivSpiller.navn}</h2>
+	<h1>RUNDE: ${spill.runde + 1}</h1>
+	<h2>Spiller: ${spill.aktivSpiller.navn}</h2>
 
 	<hr />
 	<h3>${spill.ark.rundeStrings[spill.runde]}</h3>
