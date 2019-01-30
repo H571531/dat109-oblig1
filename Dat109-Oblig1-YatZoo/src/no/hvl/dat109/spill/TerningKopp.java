@@ -10,7 +10,7 @@ import no.hvl.dat109.utils.RundeUtils;
 
 public class TerningKopp {
 	
-	Terning[] terninger;
+	private Terning[] terninger;
 	public static final boolean[] BEHOLD_INGEN_TERNINGER = {false, false, false, false, false};
 	
 	/**
@@ -85,8 +85,8 @@ public class TerningKopp {
 		boolean ok = false;
 		
 		int i = 0;
-		while(!ok && i < 5) {
-			if(antallAvGittDyr(Dyr.values()[i]) == antall) {
+		while(!ok && i < 6) {
+			if(antallAvGittDyr(Dyr.values()[i]) >= antall) {
 				ok = true;
 			} else {
 				i++;
@@ -110,7 +110,7 @@ public class TerningKopp {
 		
 		
 		while(!ok && i < 6) {
-			if(tab[i] == 2) {
+			if(tab[i] >= 2) {
 				antallDyrMedTo++;
 				if(antallDyrMedTo == 2) {
 					ok = true;
@@ -194,6 +194,13 @@ public class TerningKopp {
 		kast(new boolean[] {false, false, false, false, false});
 		
 	}
+	
+	
+	public void setTerninger(Terning[] terninger) {
+		this.terninger = terninger;
+	}
+	
+	
 
 	
 	

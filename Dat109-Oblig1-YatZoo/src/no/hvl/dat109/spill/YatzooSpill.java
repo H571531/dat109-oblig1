@@ -101,6 +101,7 @@ public class YatzooSpill {
 		if(aktivSpillerFerdigMedRunde()) {
 			nesteSpiller();
 			valgteTerninger = TerningKopp.BEHOLD_INGEN_TERNINGER;
+			aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
 		} 
 		
 		

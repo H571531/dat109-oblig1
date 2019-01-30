@@ -33,20 +33,13 @@ public class Spiller {
 	 */
 	public void kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
 		
-		boolean fornoyd = fornoyd(skalBeholde);
-		
-		if(!fornoyd) {
+		if(fornoyd(skalBeholde) || antallKast > 2) {
+			ferdigMedRunde = true;
+			resultater[runde] = kopp.beregnPoengForRunde(runde);
+		} else {
 			kopp.kast(skalBeholde);
 			antallKast++;
 		}
-		
-		//Hvis bruker har kastet tre ganger eller er fornøyd, gis ikke mulighet til å velge terninger
-		if(antallKast > 2 || fornoyd) {
-			//kopp.beregnPoengForRunde(runde);
-			ferdigMedRunde = true;
-			resultater[runde] = kopp.beregnPoengForRunde(runde);
-		}
-		
 	}
 	
 	/**

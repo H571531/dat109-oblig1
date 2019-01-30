@@ -27,4 +27,10 @@ public class Terning {
 		return verdi;
 	}
 
+	public void setVerdi(Dyr verdi) {
+		this.verdi = verdi;
+	}
+	
+	
+
 }
