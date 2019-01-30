@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import no.hvl.dat109.spill.Spiller;
 import no.hvl.dat109.spill.YatzooSpill;
+import no.hvl.dat109.utils.ServletUtils;
 
 /**
  * Servlet implementation class YatzooSpillRundeServlet
@@ -29,16 +30,12 @@ public class YatzooSpillRundeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		spill = (YatzooSpill) request.getSession().getAttribute("spill");
+		//spill = (YatzooSpill) request.getSession().getAttribute("spill");
+		
+		//request.getSession().setAttribute("valgteTerninger", sp);
 		
 		
-		if(spill.aktivSpillerFerdigMedRunde()) {
-			spill.nesteSpiller();
-			request.getSession().setAttribute("valgteTerninger", new boolean[5]); //nullstill hvilke terninger som er haket av
-		} 
-		
-		
-		request.getSession().setAttribute("aktivSpiller", aktivSpiller);
+		//request.getSession().setAttribute("aktivSpiller", aktivSpiller);
 		
 		request.getRequestDispatcher("WEB-INF/JSP/spillRunde.jsp").forward(request, response);
 		
@@ -53,19 +50,14 @@ public class YatzooSpillRundeServlet extends HttpServlet {
 		
 		//Hent array med terninger som ble haket av
 		String[] valgt = request.getParameterValues("valgteTerninger");
-		boolean[] valgteTerninger = new boolean[5];
+		//boolean[] valgteTerninger = new boolean[5];
 		
+		//"Oversett" til boolean[]
+		boolean[] valgteTerninger = ServletUtils.checkboxValgTabellTilBooleanTabell(valgt);
 		
-		//Gå gjennom tabell, sett valgte terninger til true
-		if(valgt != null) {
-			for(String tall: valgt) {
-				valgteTerninger[Integer.parseInt(tall)] = true;
-			}
-		}
+		//Hvis det velges en ny spiller nullstilles valgteTerninger
+		valgteTerninger = spill.utforNesteKast(valgteTerninger);
 		
-		
-		
-		spill.utforNesteKast(valgteTerninger);
 		request.getSession().setAttribute("valgteTerninger", valgteTerninger);
 		
 		if(spill.heltFerdig()) {

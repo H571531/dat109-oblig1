@@ -13,6 +13,7 @@
 <div class="Kast">
 	<h1>RUNDE: ${spill.runde + 1}</h1>
 	<h2>Spiller: ${spill.aktivSpiller.navn}</h2>
+	<h2>Kast nr: ${spill.aktivSpiller.antallKast} / 3</h2>
 
 	<hr />
 	<h3>${spill.ark.rundeStrings[spill.runde]}</h3>

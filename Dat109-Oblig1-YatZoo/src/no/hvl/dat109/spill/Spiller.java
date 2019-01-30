@@ -8,13 +8,13 @@ public class Spiller {
 	
 	private String navn;
 	public Integer[] resultater;
-	int antallKast;
-	boolean ferdigMedRunde;
+	private int antallKast;
+	private boolean ferdigMedRunde;
 	
 	/**
-	 * Konstruktør
+	 * Konstruktï¿½r
 	 * 
-	 * @param navn på spiller
+	 * @param navn pï¿½ spiller
 	 */
 	public Spiller(String navn) {
 		this.navn = navn;
@@ -29,27 +29,17 @@ public class Spiller {
 	 * @param koppen som skal bruke terningene
 	 * @param skalBeholde Hvilke terninger som skal beholdes
 	 * @param runde hvilken runde som spilles
-	 * @return om brukeren er fornøyd.
+	 * @return om brukeren er fornï¿½yd.
 	 */
-	public boolean kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
+	public void kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
 		
-		boolean fornoyd = fornoyd(skalBeholde);
-		
-		if(!fornoyd) {
+		if(fornoyd(skalBeholde) || antallKast > 2) {
+			ferdigMedRunde = true;
+			resultater[runde] = kopp.beregnPoengForRunde(runde);
+		} else {
 			kopp.kast(skalBeholde);
 			antallKast++;
 		}
-		
-		//Hvis bruker har kastet tre ganger eller er fornÃ¸yd, gis ikke mulighet til Ã¥ velge terninger
-		if(antallKast > 2 || fornoyd) {
-			kopp.beregnPoengForRunde(runde);
-			ferdigMedRunde = true;
-			resultater[runde] = kopp.beregnPoengForRunde(runde);
-			return true;
-		} else {
-			return fornoyd;
-		}
-		
 	}
 	
 	/**
@@ -59,24 +49,25 @@ public class Spiller {
 	 */
 	private boolean fornoyd(boolean[] skalBeholde) {
 		for(Boolean b: skalBeholde) {
-			if(!b)
+			if(!b) {
 				return false;
+			}
 		}
 		return true;
 	}
 
-	/**
-	 * Kaster terningene
-	 * 
-	 * @param koppen som skal brukes
-	 */
-	public void kastTerninger(TerningKopp kopp) {
-		kopp.kast(new boolean[] {false, false, false, false, false});
-	}
+//	/**
+//	 * Kaster terningene
+//	 * 
+//	 * @param koppen som skal brukes
+//	 */
+//	public void kastTerninger(TerningKopp kopp) {
+//		kopp.kast(new boolean[] {false, false, false, false, false});
+//	}
 	
 
 /**
- * Metode for å beregne sum av kast.
+ * Metode for ï¿½ beregne sum av kast.
  * 
  * @return
  */
@@ -114,7 +105,12 @@ public class Spiller {
 
 	public void setAntallKast(int i) {
 		this.antallKast = i;
-		
+	}
+	
+	
+
+	public int getAntallKast() {
+		return antallKast;
 	}
 
 	public void reset(TerningKopp kopp) {
