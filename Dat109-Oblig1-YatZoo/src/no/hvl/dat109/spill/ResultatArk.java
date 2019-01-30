@@ -12,7 +12,7 @@ import java.util.List;
 public class ResultatArk {
 	
 	private final String[] rundeStrings = {
-		"Runde 1: Flest mulig løver",
+		"Runde 1: Flest mulig l&oslash;ver",
 		"Runde 2: Flest mulig slanger",
 		"Runde 3: Flest mulig pandaer",
 		"Runde 4: Flest mulig griser",
@@ -41,7 +41,7 @@ public class ResultatArk {
 			"img/alleLike.PNG"
 	};
 	
-	private final String[] rundeNavn = {"LØVER","SLANGER","PANDAER","GRISER","ELEFANTER","HVALER","TRE LIKE","FIRE LIKE","TO PAR","HUS","FEM ULIKE","FEM LIKE"};
+	private final String[] rundeNavn = {"L&oslash;VER","SLANGER","PANDAER","GRISER","ELEFANTER","HVALER","TRE LIKE","FIRE LIKE","TO PAR","HUS","FEM ULIKE","FEM LIKE"};
 	
 	private Integer[][] resultater;
 	private HashMap<Spiller, Integer[]> resultaterMap;
