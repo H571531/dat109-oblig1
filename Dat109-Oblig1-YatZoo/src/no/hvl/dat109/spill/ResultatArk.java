@@ -1,13 +1,13 @@
 package no.hvl.dat109.spill;
 
 /**
- * Klasse for Spill objektet
+ * ResultatArk
+ * Hjelpeklasse for Ã¥ opprette poengskjema
+ * Inneholder ogsÃ¥ final tabeller med Strings som vises i poengskjema og mellom kast.
  * 
  * 
  * @author Gruppe 
  */
-import java.util.HashMap;
-import java.util.List;
 
 public class ResultatArk {
 	
@@ -41,44 +41,30 @@ public class ResultatArk {
 			"img/alleLike.PNG"
 	};
 	
-	private final String[] rundeNavn = {"L&oslash;VER","SLANGER","PANDAER","GRISER","ELEFANTER","HVALER","TRE LIKE","FIRE LIKE","TO PAR","HUS","FEM ULIKE","FEM LIKE"};
+	private final String[] rundeNavn = {
+			"L&oslash;VER",
+			"SLANGER",
+			"PANDAER",
+			"GRISER",
+			"ELEFANTER",
+			"HVALER",
+			"TRE LIKE",
+			"FIRE LIKE",
+			"TO PAR",
+			"HUS",
+			"FEM ULIKE",
+			"FEM LIKE"};
 	
-	private Integer[][] resultater;
-	private HashMap<Spiller, Integer[]> resultaterMap;
 	
 	/**
-	 * Konstruktør for resultatarket
+	 * Konstruktï¿½r for resultatarket
 	 * 
-	 * @param spillere som skal være med i spillet.
 	 */
-	public ResultatArk(List<Spiller> spillere) {
-		resultater = new Integer[spillere.size()][12];
-		resultaterMap = new HashMap<Spiller, Integer[]>();
-		for(Spiller spiller: spillere) {
-			resultaterMap.put(spiller, spiller.resultater);
-			
-		}
+	public ResultatArk() {
+		
 	}
 
 	
-	public Integer[][] getResultater() {
-		return resultater;
-	}
-
-	
-	public void setResultater(Integer[][] resultater) {
-		this.resultater = resultater;
-	}
-
-
-	public HashMap<Spiller, Integer[]> getResultaterMap() {
-		return resultaterMap;
-	}
-
-
-	public void setResultaterMap(HashMap<Spiller, Integer[]> resultaterMap) {
-		this.resultaterMap = resultaterMap;
-	}
 
 
 	public String[] getRundeStrings() {

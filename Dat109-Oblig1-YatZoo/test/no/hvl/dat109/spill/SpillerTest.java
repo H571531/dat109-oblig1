@@ -25,9 +25,12 @@ public class SpillerTest {
 	}
 
 	@Test
-	public void spillerErFerdigEtterTreKast() {
+	public void spillerErFerdigFoerFjerdeKast() {
 		
 		
+		assertFalse(spiller.ferdigMedRunde());
+		
+		spiller.kastTerninger(kopp, beholdIngenTerninger, 0);
 		assertFalse(spiller.ferdigMedRunde());
 		
 		spiller.kastTerninger(kopp, beholdIngenTerninger, 0);
