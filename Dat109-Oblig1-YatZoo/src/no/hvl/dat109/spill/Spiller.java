@@ -12,9 +12,9 @@ public class Spiller {
 	private boolean ferdigMedRunde;
 	
 	/**
-	 * Konstrukt�r
+	 * Konstruktør
 	 * 
-	 * @param navn p� spiller
+	 * @param navn Navn på spiller
 	 */
 	public Spiller(String navn) {
 		this.navn = navn;
@@ -26,21 +26,26 @@ public class Spiller {
 	/**
 	 * Metode som brukes per terning kast
 	 * 
-	 * @param koppen som skal bruke terningene
+	 * @param kopp TerningKoppen som skal kaste og holde rede på terningene
 	 * @param skalBeholde Hvilke terninger som skal beholdes
 	 * @param runde hvilken runde som spilles
-	 * @return om brukeren er forn�yd.
+	 * @return true hvis spiller er ferdig med runde: har valgt å beholde alle fem terninger, eller spiller har kastet tre ganger
 	 */
-	public void kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
+	public boolean kastTerninger(TerningKopp kopp, boolean[] skalBeholde, int runde) {
 		
 		if(fornoyd(skalBeholde) || antallKast > 2) {
-			ferdigMedRunde = true;
+			
 			resultater[runde] = kopp.beregnPoengForRunde(runde);
+			ferdigMedRunde = true;
 		} else {
 			kopp.kast(skalBeholde);
 			antallKast++;
+			ferdigMedRunde = false;
 		}
+		
+		return ferdigMedRunde;
 	}
+	
 	
 	/**
 	 * Gå gjennom tabell med terninger - hvis det er valgt å beholde alle returneres true
@@ -55,28 +60,29 @@ public class Spiller {
 		}
 		return true;
 	}
-
-//	/**
-//	 * Kaster terningene
-//	 * 
-//	 * @param koppen som skal brukes
-//	 */
-//	public void kastTerninger(TerningKopp kopp) {
-//		kopp.kast(new boolean[] {false, false, false, false, false});
-//	}
 	
 
-/**
- * Metode for � beregne sum av kast.
- * 
- * @return
- */
+	/**
+	 * Metode for � beregne sum av kast.
+	 * 
+	 * @return Sum av alle poengsummer
+	 */
 	public int beregnSum() {
 		int sum = 0;
 		for(Integer i: resultater) {
 			sum += ((i == null) ? 0 : i);
 		}
 		return sum;
+	}
+	
+	/**
+	 * Nullstiller spiller, brukes når en spiller starter å kaste i en ny runde
+	 * @param kopp TerningKopp som skal nullstilles
+	 */
+	public void reset(TerningKopp kopp) {
+		ferdigMedRunde = false;
+		antallKast = 0;
+		kopp.kast();
 	}
 	
 	public int getSum() {
@@ -113,11 +119,7 @@ public class Spiller {
 		return antallKast;
 	}
 
-	public void reset(TerningKopp kopp) {
-		ferdigMedRunde = false;
-		antallKast = 0;
-		kopp.kast();
-	}
+
 	
 	
 

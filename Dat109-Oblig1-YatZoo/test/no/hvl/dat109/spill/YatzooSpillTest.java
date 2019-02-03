@@ -121,19 +121,20 @@ public class YatzooSpillTest {
 	public void utforNesteKastOppdatererSpiller() {
 		spill.startSpill();
 		
-		assertEquals(0, spiller1.getAntallKast());
+		assertEquals(1, spiller1.getAntallKast());
 		
 		spill.utforNesteKast(beholdIngenTerninger);
-		assertEquals(1, spiller1.getAntallKast());
+		assertEquals(2, spiller1.getAntallKast());
 		
 		assertFalse(spiller1.ferdigMedRunde());
 		
 		assertEquals(0, spiller2.getAntallKast());
 		
 		spill.utforNesteKast(beholdAlleTerninger);
-		assertEquals(1, spiller1.getAntallKast()); //spiller1 skal ikke ha kastet flere ganger
+		assertEquals(2, spiller1.getAntallKast()); //spiller1 skal ikke ha kastet flere ganger
 		assertTrue(spiller1.ferdigMedRunde());
-		//assertEquals(1, spiller2.getAntallKast());
+		
+		assertEquals(1, spiller2.getAntallKast());
 	}
 	
 	@Test

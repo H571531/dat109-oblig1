@@ -30,12 +30,6 @@ public class YatzooSpillRundeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//spill = (YatzooSpill) request.getSession().getAttribute("spill");
-		
-		//request.getSession().setAttribute("valgteTerninger", sp);
-		
-		
-		//request.getSession().setAttribute("aktivSpiller", aktivSpiller);
 		
 		request.getRequestDispatcher("WEB-INF/JSP/spillRunde.jsp").forward(request, response);
 		

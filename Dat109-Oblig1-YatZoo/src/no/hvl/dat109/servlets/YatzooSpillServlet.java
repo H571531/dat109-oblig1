@@ -40,17 +40,17 @@ public class YatzooSpillServlet extends HttpServlet {
 		
 	}
 
-//	/**
-//	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-//	 */
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		
-//		spill = (YatzooSpill) request.getSession().getAttribute("spill");
-//	
-//		
-//		response.sendRedirect("YatzooSpillServlet");
-//		
-//		
-//	}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		spill = (YatzooSpill) request.getSession().getAttribute("spill");
+	
+		
+		response.sendRedirect("YatzooSpillServlet");
+		
+		
+	}
 
 }

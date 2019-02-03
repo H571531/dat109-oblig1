@@ -29,7 +29,7 @@
 		</c:forEach>
 		
 		
-		<br />
+		
 		<tr>
 			<td><strong>SUM: </strong></td>
 			<c:forEach var="spiller" items="${spill.spillere}">
@@ -42,7 +42,7 @@
 	<br><br><br>
 	Vinner: <strong>${spill.vinner.navn}</strong>
 	
-	<form action="YatzooSpillServlet" method="post">
+	<form action="YatzooServlet" method="get">
 		<button type="submit">Spill på nytt</button>
 	</form>
 </div>

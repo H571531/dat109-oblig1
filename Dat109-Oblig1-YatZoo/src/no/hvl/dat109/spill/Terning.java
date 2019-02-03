@@ -23,6 +23,7 @@ public class Terning {
 	public void kast() {
 		verdi = Dyr.values()[random.nextInt(6)];
 	}
+	
 	public Dyr getVerdi() {
 		return verdi;
 	}
@@ -30,6 +31,24 @@ public class Terning {
 	public void setVerdi(Dyr verdi) {
 		this.verdi = verdi;
 	}
+
+	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Terning other = (Terning) obj;
+		if (verdi != other.verdi)
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 

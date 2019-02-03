@@ -1,8 +1,6 @@
 package no.hvl.dat109.spill;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 /**
  * YatzooSpill 
  * 
@@ -22,12 +20,10 @@ public class YatzooSpill {
 	ResultatArk ark;
 	
 	/**
-	 * Konstrukt�r
+	 * Constructor
 	 * 
-	 * @param spillere som skal v�re med i spillet
+	 * @param spillere List med spillere som skal være med i spillet
 	 */
-	
-	
 	public YatzooSpill(List<Spiller> spillere) {
 		this.spillere= spillere.toArray(new Spiller[spillere.size()]);
 		
@@ -35,18 +31,16 @@ public class YatzooSpill {
 		
 		runde = 0;
 		kopp = new TerningKopp(5);
-		ark = new ResultatArk(spillere);
-		
+		ark = new ResultatArk();
 	}
 	
 	/**
-	 * Starter spillet med f�rste spiller
+	 * Starter spillet med første spiller
 	 *
 	 */
 	public void startSpill() {
 		runde = 0;
 		aktivSpiller = spillere[0];
-		//kopp.reset();
 		utforNesteKast(TerningKopp.BEHOLD_INGEN_TERNINGER);
 	}
 	
@@ -63,14 +57,12 @@ public class YatzooSpill {
 		
 		aktivSpiller = spillere[aktivSpillerInt];
 		aktivSpiller.reset(kopp);
-		//
-		
 		
 		return spillere[aktivSpillerInt];
 	}
 
 	/**
-	 * Sjekker om det er flere spillere igjen om ikke starter neste
+	 * Hvis siste spiller er ferdig, beveges spillet til neste runde
 	 * 
 	 */
 	private void bestemOmNyRunde() {
@@ -78,8 +70,9 @@ public class YatzooSpill {
 			runde++;
 		}
 	}
+	
 	/**
-	 * Metode for � si ifra at aktivSpiller er ferdig med sin runde
+	 * Metode for å si ifra at aktivSpiller er ferdig med sin runde
 	 * 
 	 * @return om spiller er ferdig med runden. 
 	 */
@@ -91,23 +84,20 @@ public class YatzooSpill {
 	/**
 	 * Starter nytt kast
 	 * 
-	 * @param valgteTerninger som skal beholdes/kastes
+	 * @param valgteTerninger Terninger som skal beholdes/kastes
 	 * @return Hvis det velges ny spiller returneres at ingen terninger er valgt - hvis samme spiller skal gjøre neste kast returneres like valg som ble gitt
 	 */
 	public boolean[] utforNesteKast(boolean[] valgteTerninger) {
 		
-		aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
+		boolean aktivSpillerFerdigMedRunde = aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
 		
-		if(aktivSpillerFerdigMedRunde()) {
+		if(aktivSpillerFerdigMedRunde) {
 			nesteSpiller();
 			valgteTerninger = TerningKopp.BEHOLD_INGEN_TERNINGER;
 			aktivSpiller.kastTerninger(kopp, valgteTerninger, runde);
 		} 
 		
-		
 		return valgteTerninger;
-		
-		
 		
 	}
 	
