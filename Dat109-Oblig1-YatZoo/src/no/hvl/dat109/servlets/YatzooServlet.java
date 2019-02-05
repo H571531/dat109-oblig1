@@ -63,6 +63,7 @@ public class YatzooServlet extends HttpServlet {
 			response.sendRedirect("YatzooServlet?forFaaSpillere");
 		} else {
 			YatzooSpill spill = new YatzooSpill(spillere);
+			spill.startSpill();
 			request.getSession().setAttribute("spill", spill);
 			response.sendRedirect("YatzooSpillServlet");
 		}

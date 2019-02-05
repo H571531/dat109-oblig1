@@ -28,7 +28,7 @@ public class YatzooSpillServlet extends HttpServlet {
 		spill = (YatzooSpill) request.getSession().getAttribute("spill");
 		
 		if(spill.getRunde() == 0) {
-			spill.startSpill();
+			
 			request.getRequestDispatcher("WEB-INF/JSP/spill.jsp").forward(request, response);
 		} else {
 			//ferdig med siste runde
