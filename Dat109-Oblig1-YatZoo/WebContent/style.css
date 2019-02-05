@@ -22,5 +22,6 @@ table, th, td {
 }
 
 div.Resultat{
-	
+	float: left;
+	width: 30%;
 }
