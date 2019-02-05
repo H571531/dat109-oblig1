@@ -53,7 +53,7 @@ public class YatzooServlet extends HttpServlet {
 		
 		for(int i = 1; i < 6; i++) {
 			String navn = request.getParameter("spiller" + i);
-			if(!navn.equals("")) {
+			if(navn != null && !navn.equals("")) {
 				spillere.add(new Spiller(navn));
 				antallSpillere++;
 			}
