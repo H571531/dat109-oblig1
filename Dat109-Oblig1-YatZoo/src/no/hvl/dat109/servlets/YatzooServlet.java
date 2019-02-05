@@ -23,7 +23,7 @@ public class YatzooServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
-	private String forFaaFeil = "<h1><color=\"red\">Det må være minst to spillere!</color></h1>";
+	private String forFaaFeil = "<h1><font color=\"red\">Det m&aring; være minst to spillere!</font></h1>";
 
     /**
      * Default constructor. 
